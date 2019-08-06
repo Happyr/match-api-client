@@ -6,7 +6,6 @@ namespace HappyrMatch\ApiClient\Model\Role;
 
 use HappyrMatch\ApiClient\Model\AbstractCollection;
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
-use HappyrMatch\ApiClient\Model\Role\RoleCategory;
 
 final class RoleCategoryCollection extends AbstractCollection implements CreatableFromArray
 {

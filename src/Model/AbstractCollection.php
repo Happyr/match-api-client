@@ -10,8 +10,9 @@ class AbstractCollection implements \ArrayAccess, \Countable, \Iterator
     private $key;
     private $count;
 
-    protected function setItems(array $items) {
-        if ($this->items !== null) {
+    protected function setItems(array $items)
+    {
+        if (null !== $this->items) {
             throw new \LogicException('AbstractCollection::setItems can only be called once.');
         }
 
@@ -27,7 +28,7 @@ class AbstractCollection implements \ArrayAccess, \Countable, \Iterator
 
     public function next()
     {
-        $this->key++;
+        ++$this->key;
     }
 
     public function key()
@@ -77,5 +78,4 @@ class AbstractCollection implements \ArrayAccess, \Countable, \Iterator
     {
         return $this->count;
     }
-
 }

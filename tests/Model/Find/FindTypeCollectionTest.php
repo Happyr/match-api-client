@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Tests\Model\Find;
 
-
 use HappyrMatch\ApiClient\Model\Find\FindType;
 use HappyrMatch\ApiClient\Model\Find\FindTypeCollection;
-use HappyrMatch\ApiClient\Model\Test\TestType;
-use HappyrMatch\ApiClient\Model\Test\TestTypeCollection;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 class FindTypeCollectionTest extends BaseModelTest

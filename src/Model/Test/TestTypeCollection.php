@@ -9,7 +9,6 @@ use HappyrMatch\ApiClient\Model\CreatableFromArray;
 
 final class TestTypeCollection extends AbstractCollection implements CreatableFromArray
 {
-
     private function __construct()
     {
     }

@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Tests\Model\Role;
 
-
 use HappyrMatch\ApiClient\Model\Role\Role;
-use HappyrMatch\ApiClient\Model\Test\TestType;
-use HappyrMatch\ApiClient\Model\Test\TestTypeCollection;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 class RoleTest extends BaseModelTest

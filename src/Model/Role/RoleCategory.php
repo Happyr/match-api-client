@@ -35,6 +35,7 @@ final class RoleCategory implements CreatableFromArray
     {
         return $this->name;
     }
+
     public function getCode(): string
     {
         return $this->code;
