@@ -111,34 +111,29 @@ class ApiClient
         return $this->authenticator->getAccessToken();
     }
 
-    public function custom(Hydrator $hydrator = null): Api\Custom
+    public function find(): Api\Find
     {
-        return new Api\Custom($this->getHttpClient(), $hydrator ?? $this->hydrator, $this->requestBuilder);
+        return new Api\Find($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
-    public function customer(): Api\Customer
+    public function group(): Api\Group
     {
-        return new Api\Customer($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+        return new Api\Group($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
-    public function cart(): Api\Test
+    public function match(): Api\Match
+    {
+        return new Api\Match($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+    }
+
+    public function role(): Api\Role
+    {
+        return new Api\Role($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+    }
+
+    public function test(): Api\Test
     {
         return new Api\Test($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
-    }
-
-    public function product(): Api\Product
-    {
-        return new Api\Product($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
-    }
-
-    public function taxon(): Api\Product\Taxon
-    {
-        return new Api\Product\Taxon($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
-    }
-
-    public function checkout(): Api\Checkout
-    {
-        return new Api\Checkout($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
     private function getHttpClient(): HttpClient

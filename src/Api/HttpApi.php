@@ -144,6 +144,9 @@ abstract class HttpApi
                 throw new DomainExceptions\UnauthorizedException();
             case 404:
                 throw new DomainExceptions\NotFoundException();
+            case 406:
+                // TODO wrong accept headers
+                throw new DomainExceptions\NotFoundException();
             default:
                 throw new DomainExceptions\UnknownErrorException();
         }
