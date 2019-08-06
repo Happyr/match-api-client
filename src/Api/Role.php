@@ -7,7 +7,7 @@ namespace HappyrMatch\ApiClient\Api;
 use HappyrMatch\ApiClient\Exception;
 use HappyrMatch\ApiClient\Model\Accepted;
 use HappyrMatch\ApiClient\Model\Role\Role as Model;
-use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
+use HappyrMatch\ApiClient\Model\Role\FindTypeCollection;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
 
@@ -71,6 +71,6 @@ class Role extends HttpApi
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, RoleCategoryCollection::class);
+        return $this->hydrator->hydrate($response, FindTypeCollection::class);
     }
 }

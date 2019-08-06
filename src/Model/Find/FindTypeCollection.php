@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model\Match;
+namespace HappyrMatch\ApiClient\Model\Find;
 
 use HappyrMatch\ApiClient\Model\AbstractCollection;
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
+use HappyrMatch\ApiClient\Model\Role\RoleCategory;
 
-final class GroupMatch extends AbstractCollection implements CreatableFromArray
+final class FindTypeCollection extends AbstractCollection implements CreatableFromArray
 {
     private function __construct()
     {
@@ -19,7 +20,7 @@ final class GroupMatch extends AbstractCollection implements CreatableFromArray
         $items = [];
 
         foreach ($data as $item) {
-            $items[] = CandidateMatch::createFromArray($item);
+            $items[] = FindType::createFromArray($item);
         }
 
         $model = new self();

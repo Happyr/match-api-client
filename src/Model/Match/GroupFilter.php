@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model\Role;
+namespace HappyrMatch\ApiClient\Model\Match;
 
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
 use HappyrMatch\ApiClient\Model\Group;

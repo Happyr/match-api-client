@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model\Role;
+namespace HappyrMatch\ApiClient\Model\Match;
 
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
 
@@ -24,9 +24,9 @@ final class CandidateMatch implements CreatableFromArray
         $model = new self();
         $model->id = $data['id'];
         $model->match = $data['attributes']['match'];
-        $model->confidence = $data['attributes']['confidence'];
-        $model->grade = $data['attributes']['grade'];
-        $model->dimensionScore = $data['attributes']['dimension_score'];
+        $model->confidence = $data['attributes']['confidence'] ?? null;
+        $model->grade = $data['attributes']['grade'] ?? null;
+        $model->dimensionScore = $data['attributes']['dimension_score'] ?? [];
 
         return $model;
     }
@@ -41,12 +41,12 @@ final class CandidateMatch implements CreatableFromArray
         return $this->match;
     }
 
-    public function getConfidence(): string
+    public function getConfidence(): ?string
     {
         return $this->confidence;
     }
 
-    public function getGrade(): int
+    public function getGrade(): ?int
     {
         return $this->grade;
     }

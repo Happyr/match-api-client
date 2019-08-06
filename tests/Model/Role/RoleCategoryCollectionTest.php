@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Tests\Model\Role;
 
-
 use HappyrMatch\ApiClient\Model\Role\RoleCategory;
 use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
-class RoleCategoryCollectionTest extends BaseModelTest
+/**
+ * @internal
+ */
+final class RoleCategoryCollectionTest extends BaseModelTest
 {
     public function testCreate()
     {
@@ -36,9 +38,9 @@ class RoleCategoryCollectionTest extends BaseModelTest
     ]
 }
 JSON;
-        $model = RoleCategoryCollection::createFromArray(json_decode($json, true));
-        $this->assertCount(2, $model);
-        $this->assertInstanceOf(RoleCategory::class, $model[0]);
-        $this->assertEquals('e286921e-acf4-4a29-988f-59faedc98f2b', $model[0]->getId());
+        $model = RoleCategoryCollection::createFromArray(\json_decode($json, true));
+        self::assertCount(2, $model);
+        self::assertInstanceOf(RoleCategory::class, $model[0]);
+        self::assertEquals('e286921e-acf4-4a29-988f-59faedc98f2b', $model[0]->getId());
     }
 }

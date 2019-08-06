@@ -6,8 +6,8 @@ namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
 use HappyrMatch\ApiClient\Model\Match\GroupMatch;
-use HappyrMatch\ApiClient\Model\Role\CandidateMatch;
-use HappyrMatch\ApiClient\Model\Role\GroupFilter;
+use HappyrMatch\ApiClient\Model\Match\CandidateMatch;
+use HappyrMatch\ApiClient\Model\Match\GroupFilter;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
 
