@@ -1,10 +1,12 @@
-# Sylius API client
+# Happyr Match API client
 
 [![Latest Version](https://img.shields.io/github/release/Happyr/match-api-client.svg?style=flat-square)](https://github.com/Happyr/match-api-client/releases)
 [![Build Status](https://img.shields.io/travis/Happyr/match-api-client.svg?style=flat-square)](https://travis-ci.org/Happyr/match-api-client)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/Happyr/match-api-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/Happyr/match-api-client)
 [![Quality Score](https://img.shields.io/scrutinizer/g/Happyr/match-api-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/Happyr/match-api-client)
 [![Total Downloads](https://img.shields.io/packagist/dt/happyr-match/api-client.svg?style=flat-square)](https://packagist.org/packages/happyr-match/api-client)
+
+Api client for https://api.happyrmatch.com.
 
 ## Install
 
