@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model;
+namespace HappyrMatch\ApiClient\Model\Test;
 
-class Group implements CreatableFromArray
+use HappyrMatch\ApiClient\Model\CreatableFromArray;
+
+class Test implements CreatableFromArray
 {
     private $id;
 

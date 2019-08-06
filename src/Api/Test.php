@@ -6,6 +6,7 @@ namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
 use HappyrMatch\ApiClient\Model\Test\Test as Model;
+use HappyrMatch\ApiClient\Model\Test\TestTypeCollection;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
 
