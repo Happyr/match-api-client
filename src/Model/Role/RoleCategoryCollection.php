@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model\Test;
+namespace HappyrMatch\ApiClient\Model\Role;
 
 use HappyrMatch\ApiClient\Model\AbstractCollection;
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
+use HappyrMatch\ApiClient\Model\Role\RoleCategory;
 
-final class TestTypeCollection extends AbstractCollection implements CreatableFromArray
+final class RoleCategoryCollection extends AbstractCollection implements CreatableFromArray
 {
-
     private function __construct()
     {
     }
@@ -20,7 +20,7 @@ final class TestTypeCollection extends AbstractCollection implements CreatableFr
         $items = [];
 
         foreach ($data as $item) {
-            $items[] = TestType::createFromArray($item);
+            $items[] = RoleCategory::createFromArray($item);
         }
 
         $model = new self();
