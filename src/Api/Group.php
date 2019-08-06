@@ -66,5 +66,4 @@ class Group extends HttpApi
 
         return $this->hydrator->hydrate($response, Accepted::class);
     }
-
 }

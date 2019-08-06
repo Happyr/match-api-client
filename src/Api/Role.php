@@ -34,6 +34,7 @@ class Role extends HttpApi
 
         return $this->hydrator->hydrate($response, Model::class);
     }
+
     /**
      * @throws Exception
      *

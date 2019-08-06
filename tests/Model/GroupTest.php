@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace HappyrMatch\ApiClient\Tests\Model;
 
 use HappyrMatch\ApiClient\Model\Group;
-use HappyrMatch\ApiClient\Model\Product\Variant;
-use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 class GroupTest extends BaseModelTest
 {
