@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
-use HappyrMatch\ApiClient\Model\Group\Group as Model;
+use HappyrMatch\ApiClient\Model\Accepted;
+use HappyrMatch\ApiClient\Model\Group as Model;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
 
