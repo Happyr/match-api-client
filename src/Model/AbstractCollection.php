@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Model;
 
-final class AbstractCollection implements \ArrayAccess, \Countable, \Iterator
+abstract class AbstractCollection implements \ArrayAccess, \Countable, \Iterator
 {
     private $items;
     private $key;
