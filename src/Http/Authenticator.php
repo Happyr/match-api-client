@@ -8,11 +8,11 @@ use HappyrMatch\ApiClient\RequestBuilder;
 use Http\Client\HttpClient;
 
 /**
- * Class that gets access tokens.
+ * Helper class to get access tokens.
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  *
- * @internal
+ * @internal this class should not be used outside of the API Client, it is not part of the BC promise
  */
 final class Authenticator
 {
