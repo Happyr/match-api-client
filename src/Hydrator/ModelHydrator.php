@@ -18,7 +18,7 @@ final class ModelHydrator implements Hydrator
     public function hydrate(ResponseInterface $response, string $class)
     {
         $body = $response->getBody()->__toString();
-        if (0 !== \mb_strpos($response->getHeaderLine('Content-Type'), 'application/json')) {
+        if (0 !== \mb_strpos($response->getHeaderLine('Content-Type'), 'application/vnd.api+json')) {
             throw new HydrationException('The ModelHydrator cannot hydrate response with Content-Type:'.$response->getHeaderLine('Content-Type'));
         }
 

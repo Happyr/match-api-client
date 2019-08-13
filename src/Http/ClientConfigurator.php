@@ -75,6 +75,7 @@ final class ClientConfigurator
                 [
                     'User-Agent' => 'Happyr/match-api-client (https://github.com/Happyr/match-api-client)',
                     'Content-type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
                 ]
             );
 

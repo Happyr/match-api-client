@@ -10,7 +10,7 @@ final class RoleCategory implements CreatableFromArray
 {
     private $id;
     private $name;
-    private $code;
+    private $language;
 
     private function __construct()
     {
@@ -21,7 +21,7 @@ final class RoleCategory implements CreatableFromArray
         $model = new self();
         $model->id = $data['id'];
         $model->name = $data['attributes']['name'];
-        $model->code = $data['attributes']['code'];
+        $model->language = $data['attributes']['language'];
 
         return $model;
     }
@@ -36,8 +36,8 @@ final class RoleCategory implements CreatableFromArray
         return $this->name;
     }
 
-    public function getCode(): string
+    public function getLanguage(): string
     {
-        return $this->code;
+        return $this->language;
     }
 }

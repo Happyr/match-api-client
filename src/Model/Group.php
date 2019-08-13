@@ -14,7 +14,7 @@ class Group implements CreatableFromArray
 
     public static function createFromArray(array $data)
     {
-        $data = $data['data'];
+        $data = $data['data'] ?? $data;
         $model = new self();
         $model->id = $data['id'];
 
