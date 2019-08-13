@@ -13,7 +13,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-class AuthenticationPlugin implements Plugin
+final class AuthenticationPlugin implements Plugin
 {
     const RETRY_LIMIT = 2;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Model;
 
-class Accepted implements CreatableFromArray
+final class Accepted implements CreatableFromArray
 {
     private function __construct()
     {
