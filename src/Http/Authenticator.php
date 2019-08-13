@@ -49,16 +49,16 @@ final class Authenticator
         $this->clientSecret = $clientSecret;
     }
 
-    public function createAccessToken(string $username, string $password): ?string
+    public function createAccessToken(string $code, string $redirectUri): ?string
     {
-        $request = $this->requestBuilder->create('POST', '/api/oauth/v2/token', [
+        $request = $this->requestBuilder->create('POST', '/oauth/token', [
             'Content-type' => 'application/x-www-form-urlencoded',
         ], \http_build_query([
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
-            'grant_type' => 'password',
-            'username' => $username,
-            'password' => $password,
+            'grant_type' => 'authorization_code',
+            'redirect_uri' => $redirectUri,
+            'code' => $code,
         ]));
 
         $response = $this->httpClient->sendRequest($request);
@@ -73,7 +73,8 @@ final class Authenticator
 
     public function refreshAccessToken(string $accessToken, string $refreshToken): ?string
     {
-        $request = $this->requestBuilder->create('POST', '/api/oauth/v2/token', [
+        // TODO test this
+        $request = $this->requestBuilder->create('POST', '/oauth/token', [
             'Authorization' => \sprintf('Bearer %s', $accessToken),
             'Content-type' => 'application/x-www-form-urlencoded',
         ], \http_build_query([
