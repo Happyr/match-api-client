@@ -18,7 +18,7 @@ final class Role extends HttpApi
     /**
      * @throws Exception
      *
-     * @return Model|ResponseInterface
+     * @return Accepted|ResponseInterface
      */
     public function create(array $param)
     {
@@ -39,7 +39,7 @@ final class Role extends HttpApi
     /**
      * @throws Exception
      *
-     * @return Model|ResponseInterface
+     * @return Accepted|ResponseInterface
      */
     public function update(string $role, array $param)
     {

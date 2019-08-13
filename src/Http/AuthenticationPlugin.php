@@ -81,8 +81,6 @@ class AuthenticationPlugin implements Plugin
 
             return $promise->wait();
         });
-
-        return $response;
     }
 
     public function getAccessToken(): string
