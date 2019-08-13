@@ -6,9 +6,6 @@ namespace HappyrMatch\ApiClient\Model\Test;
 
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
 
-/**
- * @internal
- */
 final class Test implements CreatableFromArray
 {
     private $id;
