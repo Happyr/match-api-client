@@ -73,7 +73,6 @@ final class Authenticator
 
     public function refreshAccessToken(string $accessToken, string $refreshToken): ?string
     {
-        // TODO test this
         $request = $this->requestBuilder->create('POST', '/oauth/token', [
             'Authorization' => \sprintf('Bearer %s', $accessToken),
             'Content-type' => 'application/x-www-form-urlencoded',
