@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Api;
 
+use HappyrMatch\ApiClient\Model\Accepted;
+use HappyrMatch\ApiClient\Model\Find\FindTypeCollection;
 use Webmozart\Assert\Assert;
 
 /**
