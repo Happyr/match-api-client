@@ -17,11 +17,6 @@ use Http\Client\HttpClient;
 class ApiClient
 {
     /**
-     * @var HttpClient
-     */
-    private $httpClient;
-
-    /**
      * @var Hydrator
      */
     private $hydrator;
@@ -35,16 +30,6 @@ class ApiClient
      * @var ClientConfigurator
      */
     private $clientConfigurator;
-
-    /**
-     * @var string|null
-     */
-    private $clientId;
-
-    /**
-     * @var string|null
-     */
-    private $clientSecret;
 
     /**
      * @var Authenticator

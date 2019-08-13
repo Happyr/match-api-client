@@ -6,7 +6,6 @@ namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
 use HappyrMatch\ApiClient\Model\Accepted;
-use HappyrMatch\ApiClient\Model\Role\Role as Model;
 use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
@@ -30,11 +29,11 @@ final class Role extends HttpApi
         }
 
         // Use any valid status code here
-        if (201 !== $response->getStatusCode()) {
+        if (202 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, Model::class);
+        return $this->hydrator->hydrate($response, Accepted::class);
     }
 
     /**
@@ -52,7 +51,7 @@ final class Role extends HttpApi
         }
 
         // Use any valid status code here
-        if (200 !== $response->getStatusCode()) {
+        if (202 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
