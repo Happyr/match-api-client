@@ -19,7 +19,7 @@ $ composer require happyr-match/api-client
 ## Usage
 
 ``` php
-$apiClient = SyliusClient::create($endpoint, $clientId, $clientSecret);
+$apiClient = ApiClient::create($endpoint, $clientId, $clientSecret);
 $accessToken = $apiClient->createNewAccessToken($username, $password);
 $apiClient->authenticate($accessToken);
 $allProducts = $apiClient->product()->getAll()
