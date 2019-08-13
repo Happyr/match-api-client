@@ -42,7 +42,7 @@ class AuthenticationPlugin implements Plugin
 
     public function handleRequest(RequestInterface $request, callable $next, callable $first)
     {
-        if (null === $this->accessToken) {
+        if (null === $this->accessToken || $request->hasHeader('Authorization')) {
             return $next($request);
         }
 
@@ -81,8 +81,6 @@ class AuthenticationPlugin implements Plugin
 
             return $promise->wait();
         });
-
-        return $response;
     }
 
     public function getAccessToken(): string

@@ -6,10 +6,10 @@ namespace HappyrMatch\ApiClient\Http;
 
 use Http\Client\Common\Plugin;
 use Http\Client\Common\PluginClient;
-use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\UriFactoryDiscovery;
 use Http\Message\UriFactory;
+use Psr\Http\Client\ClientInterface;
 
 /**
  * Configure an HTTP client.
@@ -31,7 +31,7 @@ final class ClientConfigurator
     /**
      * This is the client we use for actually sending the requests.
      *
-     * @var HttpClient
+     * @var ClientInterface
      */
     private $httpClient;
 
@@ -59,13 +59,13 @@ final class ClientConfigurator
      */
     private $configurationModified = true;
 
-    public function __construct(HttpClient $httpClient = null, UriFactory $uriFactory = null)
+    public function __construct(ClientInterface $httpClient = null, UriFactory $uriFactory = null)
     {
         $this->httpClient = $httpClient ?? HttpClientDiscovery::find();
         $this->uriFactory = $uriFactory ?? UriFactoryDiscovery::find();
     }
 
-    public function createConfiguredClient(): HttpClient
+    public function createConfiguredClient(): PluginClient
     {
         if ($this->configurationModified) {
             $this->configurationModified = false;

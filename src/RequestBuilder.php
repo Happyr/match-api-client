@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient;
 
-use Http\Discovery\MessageFactoryDiscovery;
-use Http\Message\MultipartStream\MultipartStreamBuilder;
-use Http\Message\RequestFactory;
+use Http\Discovery\Psr17FactoryDiscovery;
+use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
@@ -16,60 +17,38 @@ use Psr\Http\Message\RequestInterface;
  */
 final class RequestBuilder
 {
-    /**
-     * @var RequestFactory
-     */
     private $requestFactory;
+    private $streamFactory;
 
-    /**
-     * @var MultipartStreamBuilder
-     */
-    private $multipartStreamBuilder;
-
-    /**
-     * @param RequestFactory         $requestFactory
-     * @param MultipartStreamBuilder $multipartStreamBuilder
-     */
     public function __construct(
-        RequestFactory $requestFactory = null,
-        MultipartStreamBuilder $multipartStreamBuilder = null
+        RequestFactoryInterface $requestFactory = null,
+        StreamFactoryInterface $streamFactory = null
     ) {
-        $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
-        $this->multipartStreamBuilder = $multipartStreamBuilder ?: new MultipartStreamBuilder();
+        $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
+        $this->streamFactory = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
     }
 
     /**
      * Creates a new PSR-7 request.
      *
-     * @param array|string|null $body Request body. If body is an array we will send a as multipart stream request.
-     *                                If array, each array *item* MUST look like:
-     *                                array (
-     *                                'content' => string|resource|StreamInterface,
-     *                                'name'    => string,
-     *                                'filename'=> string (optional)
-     *                                'headers' => array (optinal) ['header-name' => 'header-value']
-     *                                )
+     * @param array                       $headers name => value or name=>[value]
+     * @param StreamInterface|string|null $body    request body
      */
     public function create(string $method, string $uri, array $headers = [], $body = null): RequestInterface
     {
-        if (!\is_array($body)) {
-            return $this->requestFactory->createRequest($method, $uri, $headers, $body);
+        $request = $this->requestFactory->createRequest($method, $uri);
+        foreach ($headers as $name => $value) {
+            $request = $request->withHeader($name, $value);
         }
 
-        foreach ($body as $item) {
-            $name = $item['name'];
-            $content = $item['content'];
-            unset($item['name'], $item['content']);
+        if (null !== $body) {
+            if (!$body instanceof StreamInterface) {
+                $body = $this->streamFactory->createStream($body);
+            }
 
-            $this->multipartStreamBuilder->addResource($name, $content, $item);
+            $request = $request->withBody($body);
         }
 
-        $multipartStream = $this->multipartStreamBuilder->build();
-        $boundary = $this->multipartStreamBuilder->getBoundary();
-
-        $headers['Content-Type'] = 'multipart/form-data; boundary='.$boundary;
-        $this->multipartStreamBuilder->reset();
-
-        return $this->requestFactory->createRequest($method, $uri, $headers, $multipartStream);
+        return $request;
     }
 }

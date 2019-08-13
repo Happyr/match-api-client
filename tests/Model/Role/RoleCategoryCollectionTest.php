@@ -23,7 +23,7 @@ final class RoleCategoryCollectionTest extends BaseModelTest
             "type": "role-category",
             "id": "e286921e-acf4-4a29-988f-59faedc98f2b",
             "attributes": {
-                "code": "role_0",
+                "language": "sv",
                 "name": "Role 0"
             }
         },
@@ -31,7 +31,7 @@ final class RoleCategoryCollectionTest extends BaseModelTest
             "type": "role-category",
             "id": "618e7c39-86b1-493d-84da-b9d0e4015d4e",
             "attributes": {
-                "code": "role_1",
+                "language": "sv",
                 "name": "Role 1"
             }
         }

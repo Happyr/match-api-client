@@ -17,11 +17,6 @@ use Http\Client\HttpClient;
 class ApiClient
 {
     /**
-     * @var HttpClient
-     */
-    private $httpClient;
-
-    /**
      * @var Hydrator
      */
     private $hydrator;
@@ -35,16 +30,6 @@ class ApiClient
      * @var ClientConfigurator
      */
     private $clientConfigurator;
-
-    /**
-     * @var string|null
-     */
-    private $clientId;
-
-    /**
-     * @var string|null
-     */
-    private $clientSecret;
 
     /**
      * @var Authenticator
@@ -77,18 +62,19 @@ class ApiClient
     }
 
     /**
-     * Autnenticate a user with the API. This will return an access token.
+     * Step 2 in the authentication process. See https://api.happyrmatch.com/doc/authentication.html for details.
+     *
      * Warning, this will remove the current access token.
      */
-    public function createNewAccessToken(string $username, string $password): ?string
+    public function createNewAccessToken(string $code, string $redirectUri): ?string
     {
         $this->clientConfigurator->removePlugin(AuthenticationPlugin::class);
 
-        return $this->authenticator->createAccessToken($username, $password);
+        return $this->authenticator->createAccessToken($code, $redirectUri);
     }
 
     /**
-     * Autenticate the client with an access token. This should be the full access token object with
+     * Authenticate the client with an access token. This should be the full access token object with
      * refresh token and expirery timestamps.
      *
      * ```php

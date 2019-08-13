@@ -6,7 +6,6 @@ namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
 use HappyrMatch\ApiClient\Model\Accepted;
-use HappyrMatch\ApiClient\Model\Role\Role as Model;
 use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
@@ -19,7 +18,7 @@ final class Role extends HttpApi
     /**
      * @throws Exception
      *
-     * @return Model|ResponseInterface
+     * @return Accepted|ResponseInterface
      */
     public function create(array $param)
     {
@@ -30,17 +29,17 @@ final class Role extends HttpApi
         }
 
         // Use any valid status code here
-        if (201 !== $response->getStatusCode()) {
+        if (202 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, Model::class);
+        return $this->hydrator->hydrate($response, Accepted::class);
     }
 
     /**
      * @throws Exception
      *
-     * @return Model|ResponseInterface
+     * @return Accepted|ResponseInterface
      */
     public function update(string $role, array $param)
     {
@@ -52,7 +51,7 @@ final class Role extends HttpApi
         }
 
         // Use any valid status code here
-        if (200 !== $response->getStatusCode()) {
+        if (202 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
@@ -61,7 +60,6 @@ final class Role extends HttpApi
 
     public function search(string $name, string $language)
     {
-        // TODO make sure we remove Authorization header from request.
         $response = $this->httpGet('/api/role-categories/search', ['language' => $language, 'name' => $name], ['Authorization' => '']);
         if (!$this->hydrator) {
             return $response;
