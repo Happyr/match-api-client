@@ -61,7 +61,6 @@ final class Role extends HttpApi
 
     public function search(string $name, string $language)
     {
-        // TODO make sure we remove Authorization header from request.
         $response = $this->httpGet('/api/role-categories/search', ['language' => $language, 'name' => $name], ['Authorization' => '']);
         if (!$this->hydrator) {
             return $response;
