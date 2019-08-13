@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
+use HappyrMatch\ApiClient\Model\Role\Role as Model;
 use HappyrMatch\ApiClient\Model\Accepted;
 use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
 use Psr\Http\Message\ResponseInterface;
@@ -18,7 +19,7 @@ final class Role extends HttpApi
     /**
      * @throws Exception
      *
-     * @return Accepted|ResponseInterface
+     * @return Model|ResponseInterface
      */
     public function create(array $param)
     {
@@ -29,11 +30,11 @@ final class Role extends HttpApi
         }
 
         // Use any valid status code here
-        if (202 !== $response->getStatusCode()) {
+        if (201 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
-        return $this->hydrator->hydrate($response, Accepted::class);
+        return $this->hydrator->hydrate($response, Model::class);
     }
 
     /**

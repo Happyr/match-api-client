@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model;
+namespace HappyrMatch\ApiClient\Model\Role;
 
-final class Group implements CreatableFromArray
+use HappyrMatch\ApiClient\Model\CreatableFromArray;
+
+final class Role implements CreatableFromArray
 {
     private $id;
 
@@ -15,6 +17,7 @@ final class Group implements CreatableFromArray
     public static function createFromArray(array $data)
     {
         $data = $data['data'] ?? $data;
+
         $model = new self();
         $model->id = $data['id'];
 

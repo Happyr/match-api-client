@@ -6,9 +6,10 @@ namespace HappyrMatch\ApiClient\Model\Test;
 
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
 
-class Test implements CreatableFromArray
+final class Test implements CreatableFromArray
 {
     private $id;
+    private $url;
 
     private function __construct()
     {
@@ -19,6 +20,7 @@ class Test implements CreatableFromArray
         $data = $data['data'];
         $model = new self();
         $model->id = $data['id'];
+        $model->url = $data['attributes']['url'];
 
         return $model;
     }
@@ -26,5 +28,10 @@ class Test implements CreatableFromArray
     public function getId(): string
     {
         return $this->id;
+    }
+
+    public function getUrl(): string
+    {
+        return $this->url;
     }
 }

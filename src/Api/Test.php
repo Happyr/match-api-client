@@ -20,16 +20,16 @@ class Test extends HttpApi
      *
      * @return Model|ResponseInterface
      */
-    public function create(string $role, string $type, string $redirectUrl)
+    public function create(string $role, string $type, string $redirectUri)
     {
         Assert::notEmpty($role, 'Role cannot be empty');
         Assert::notEmpty($type, 'Type cannot be empty');
-        Assert::notEmpty($redirectUrl, 'RedirectUrl cannot be empty');
+        Assert::notEmpty($redirectUri, 'RedirectUri cannot be empty');
 
         $response = $this->httpPost('/api/tests', [
             'role' => $role,
             'type' => $type,
-            'redirect_url' => $redirectUrl,
+            'redirect_uri' => $redirectUri,
         ]);
 
         if (!$this->hydrator) {

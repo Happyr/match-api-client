@@ -17,7 +17,9 @@ class TestTest extends BaseModelTest
     "data": {
         "type": "test",
         "id": "c980d2f8-c864-4d38-8233-c2bbef439125",
-        "attributes": []
+        "attributes": {
+            "url": "https://foo.com/bar"
+        }
     }
 }
 
