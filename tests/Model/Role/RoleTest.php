@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace HappyrMatch\ApiClient\Tests\Model\Role;
 
 use HappyrMatch\ApiClient\Model\Role\Role;
-use HappyrMatch\ApiClient\Model\Role\RoleCategory;
-use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 /**
