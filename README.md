@@ -20,23 +20,14 @@ $ composer require happyr-match/api-client
 
 ``` php
 $apiClient = ApiClient::create($endpoint, $clientId, $clientSecret);
-$accessToken = $apiClient->createNewAccessToken($username, $password);
+$accessToken = $apiClient->createNewAccessToken($code, $redirectUri);
 $apiClient->authenticate($accessToken);
-$allProducts = $apiClient->product()->getAll()
+$findTypes = $apiClient->find()->getTypes();
 ```
 
 ### Hydrator
 
 The end user chooses which hydrator to use. The default one should return domain objects.
-
-
-### Request builder
-
-The request builder creates a PSR-7 request with a multipart stream when necessary
-If the API does not require multipart streams you should remove the `RequestBuilder`
-and replace it with a `RequestFactory`.
-
-
 
 ## License
 
