@@ -28,7 +28,7 @@ class Match extends HttpApi
         Assert::notEmpty($type, 'Type cannot be empty');
 
         $response = $this->httpGet(sprintf('/api/candidates/%s/match', $candidate), [
-            'role_id' => $role,
+            'role' => $role,
             'type' => $type,
         ]);
 

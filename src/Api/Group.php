@@ -60,7 +60,7 @@ class Group extends HttpApi
         }
 
         // Use any valid status code here
-        if (202 !== $response->getStatusCode()) {
+        if (201 !== $response->getStatusCode()) {
             $this->handleErrors($response);
         }
 
