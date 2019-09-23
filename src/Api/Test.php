@@ -20,15 +20,15 @@ class Test extends HttpApi
      *
      * @return Model|ResponseInterface
      */
-    public function create(string $role, string $type, string $redirectUri)
+    public function create(string $role, array $types, string $redirectUri)
     {
         Assert::notEmpty($role, 'Role cannot be empty');
-        Assert::notEmpty($type, 'Type cannot be empty');
+        Assert::allString($types, 'Types must be an array with strings');
         Assert::notEmpty($redirectUri, 'RedirectUri cannot be empty');
 
         $response = $this->httpPost('/api/tests', [
             'role' => $role,
-            'type' => $type,
+            'types' => $types,
             'redirect_uri' => $redirectUri,
         ]);
 
