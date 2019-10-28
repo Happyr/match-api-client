@@ -13,16 +13,16 @@ use Webmozart\Assert\Assert;
  */
 class Find extends HttpApi
 {
-    public function create(string $role, string $type, string $callbackUri)
+    public function create(string $role, string $type, string $callbackUrl)
     {
         Assert::notEmpty($role, 'Role cannot be empty');
         Assert::notEmpty($type, 'Type cannot be empty');
-        Assert::notEmpty($callbackUri, 'CallbackUri cannot be empty');
+        Assert::notEmpty($callbackUrl, 'CallbackUrl cannot be empty');
 
         $response = $this->httpPost('/api/find', [
             'role' => $role,
             'type' => $type,
-            'callback_uri' => $callbackUri,
+            'callback_url' => $callbackUrl,
         ]);
 
         if (!$this->hydrator) {
