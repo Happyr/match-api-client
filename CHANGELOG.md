@@ -5,6 +5,11 @@
 
 - Initial release
 
-## 0.2.4
+## 0.2.0
 
-- Added taxon 
+- Support multiple test types to be passed when creating a tests
+
+## 0.2.1
+
+- Fix post parameter for create Find request
+
