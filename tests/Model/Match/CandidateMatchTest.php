@@ -29,6 +29,6 @@ final class CandidateMatchTest extends BaseModelTest
 }
 JSON;
         $model = CandidateMatch::createFromArray(\json_decode($json, true));
-        self::assertEquals('1c227a66-92da-4192-bb0b-5103ed64b6a8', $model->getId());
+        $this->assertEquals('1c227a66-92da-4192-bb0b-5103ed64b6a8', $model->getId());
     }
 }

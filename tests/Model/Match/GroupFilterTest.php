@@ -49,9 +49,9 @@ final class GroupFilterTest extends BaseModelTest
 }
 JSON;
         $model = GroupFilter::createFromArray(\json_decode($json, true));
-        self::assertCount(5, $model->getCandidates());
-        self::assertInstanceOf(Group::class, $model->getGroup());
-        self::assertEquals('65fc109f-a19b-467b-9c15-83920eeaa2b6', $model->getGroup()->getId());
+        $this->assertCount(5, $model->getCandidates());
+        $this->assertInstanceOf(Group::class, $model->getGroup());
+        $this->assertEquals('65fc109f-a19b-467b-9c15-83920eeaa2b6', $model->getGroup()->getId());
     }
 
     public function testCreateWithoutGroup()
@@ -75,7 +75,7 @@ JSON;
 }
 JSON;
         $model = GroupFilter::createFromArray(\json_decode($json, true));
-        self::assertCount(5, $model->getCandidates());
-        self::assertNull($model->getGroup());
+        $this->assertCount(5, $model->getCandidates());
+        $this->assertNull($model->getGroup());
     }
 }

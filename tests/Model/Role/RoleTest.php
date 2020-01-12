@@ -17,7 +17,7 @@ final class RoleTest extends BaseModelTest
         $json =
             <<<'JSON'
 {
-    "data": 
+    "data":
         {
             "type": "role",
             "id": "e286921e-acf4-4a29-988f-59faedc98f2b",
@@ -26,6 +26,6 @@ final class RoleTest extends BaseModelTest
 }
 JSON;
         $model = Role::createFromArray(\json_decode($json, true));
-        self::assertEquals('e286921e-acf4-4a29-988f-59faedc98f2b', $model->getId());
+        $this->assertEquals('e286921e-acf4-4a29-988f-59faedc98f2b', $model->getId());
     }
 }

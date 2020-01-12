@@ -26,14 +26,14 @@ final class HttpClientConfiguratorTest extends TestCase
 
         $hcc->appendPlugin($plugin0);
         $plugins = NSA::getProperty($hcc, 'appendPlugins');
-        static::assertCount(1, $plugins);
-        static::assertEquals($plugin0, $plugins[0]);
+        $this->assertCount(1, $plugins);
+        $this->assertEquals($plugin0, $plugins[0]);
 
         $plugin1 = new HeaderAppendPlugin(['plugin1']);
         $hcc->appendPlugin($plugin1);
         $plugins = NSA::getProperty($hcc, 'appendPlugins');
-        static::assertCount(2, $plugins);
-        static::assertEquals($plugin1, $plugins[1]);
+        $this->assertCount(2, $plugins);
+        $this->assertEquals($plugin1, $plugins[1]);
     }
 
     public function testAppendPluginMultiple()
@@ -44,9 +44,9 @@ final class HttpClientConfiguratorTest extends TestCase
 
         $hcc->appendPlugin($plugin0, $plugin1);
         $plugins = NSA::getProperty($hcc, 'appendPlugins');
-        static::assertCount(2, $plugins);
-        static::assertEquals($plugin0, $plugins[0]);
-        static::assertEquals($plugin1, $plugins[1]);
+        $this->assertCount(2, $plugins);
+        $this->assertEquals($plugin0, $plugins[0]);
+        $this->assertEquals($plugin1, $plugins[1]);
     }
 
     public function testPrependPlugin()
@@ -56,14 +56,14 @@ final class HttpClientConfiguratorTest extends TestCase
 
         $hcc->prependPlugin($plugin0);
         $plugins = NSA::getProperty($hcc, 'prependPlugins');
-        static::assertCount(1, $plugins);
-        static::assertEquals($plugin0, $plugins[0]);
+        $this->assertCount(1, $plugins);
+        $this->assertEquals($plugin0, $plugins[0]);
 
         $plugin1 = new HeaderAppendPlugin(['plugin1']);
         $hcc->prependPlugin($plugin1);
         $plugins = NSA::getProperty($hcc, 'prependPlugins');
-        static::assertCount(2, $plugins);
-        static::assertEquals($plugin1, $plugins[0]);
+        $this->assertCount(2, $plugins);
+        $this->assertEquals($plugin1, $plugins[0]);
     }
 
     public function testPrependPluginMultiple()
@@ -74,8 +74,8 @@ final class HttpClientConfiguratorTest extends TestCase
 
         $hcc->prependPlugin($plugin0, $plugin1);
         $plugins = NSA::getProperty($hcc, 'prependPlugins');
-        static::assertCount(2, $plugins);
-        static::assertEquals($plugin0, $plugins[0]);
-        static::assertEquals($plugin1, $plugins[1]);
+        $this->assertCount(2, $plugins);
+        $this->assertEquals($plugin0, $plugins[0]);
+        $this->assertEquals($plugin1, $plugins[1]);
     }
 }
