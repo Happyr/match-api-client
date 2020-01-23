@@ -13,6 +13,7 @@ final class CandidateMatch implements CreatableFromArray
     private $confidence;
     private $grade;
     private $dimensionScore;
+    private $text;
 
     private function __construct()
     {
@@ -27,6 +28,7 @@ final class CandidateMatch implements CreatableFromArray
         $model->confidence = $data['attributes']['confidence'] ?? null;
         $model->grade = $data['attributes']['grade'] ?? null;
         $model->dimensionScore = $data['attributes']['dimension_score'] ?? [];
+        $model->text = $data['attributes']['text'] ?? [];
 
         return $model;
     }
@@ -54,5 +56,10 @@ final class CandidateMatch implements CreatableFromArray
     public function getDimensionScore(): array
     {
         return $this->dimensionScore;
+    }
+
+    public function getText(): array
+    {
+        return $this->text;
     }
 }
