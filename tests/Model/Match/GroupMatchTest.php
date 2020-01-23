@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Tests\Model\Role;
 
-use HappyrMatch\ApiClient\Model\Match\GroupMatch;
 use HappyrMatch\ApiClient\Model\Match\CandidateMatch;
+use HappyrMatch\ApiClient\Model\Match\GroupMatch;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 /**
