@@ -148,6 +148,8 @@ abstract class HttpApi
                 throw new DomainExceptions\NotFoundException();
             case 406:
                 throw new DomainExceptions\ClientException('Wrong Accept headers');
+            case 500:
+                throw new DomainExceptions\ServerException();
             default:
                 throw new DomainExceptions\UnknownErrorException();
         }
