@@ -39,8 +39,8 @@ final class RoleCategoryCollectionTest extends BaseModelTest
 }
 JSON;
         $model = RoleCategoryCollection::createFromArray(\json_decode($json, true));
-        self::assertCount(2, $model);
-        self::assertInstanceOf(RoleCategory::class, $model[0]);
-        self::assertEquals('e286921e-acf4-4a29-988f-59faedc98f2b', $model[0]->getId());
+        $this->assertCount(2, $model);
+        $this->assertInstanceOf(RoleCategory::class, $model[0]);
+        $this->assertEquals('e286921e-acf4-4a29-988f-59faedc98f2b', $model[0]->getId());
     }
 }
