@@ -142,6 +142,8 @@ abstract class HttpApi
                 throw new DomainExceptions\ValidationException($body);
             case 401:
                 throw new DomainExceptions\UnauthorizedException();
+            case 403:
+                throw new DomainExceptions\ForbiddenException();
             case 404:
                 throw new DomainExceptions\NotFoundException();
             case 406:
