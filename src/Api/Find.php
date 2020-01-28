@@ -13,7 +13,7 @@ use Webmozart\Assert\Assert;
  */
 class Find extends HttpApi
 {
-    public function create(string $role, string $type, string $callbackUrl)
+    public function create(string $role, string $type, string $callbackUrl, string $nonce = '')
     {
         Assert::notEmpty($role, 'Role cannot be empty');
         Assert::notEmpty($type, 'Type cannot be empty');
@@ -23,6 +23,7 @@ class Find extends HttpApi
             'role' => $role,
             'type' => $type,
             'callback_url' => $callbackUrl,
+            'nonce' => $nonce,
         ]);
 
         if (!$this->hydrator) {
