@@ -21,16 +21,23 @@ class Match extends HttpApi
      *
      * @return CandidateMatch|ResponseInterface
      */
-    public function candidateMatch(string $candidate, string $role, string $type)
+    public function candidateMatch(string $candidate, string $role, string $type, ?string $language = null)
     {
         Assert::notEmpty($candidate, 'Candidate cannot be empty');
         Assert::notEmpty($role, 'Role cannot be empty');
         Assert::notEmpty($type, 'Type cannot be empty');
+        Assert::nullOrStringNotEmpty($language, 'Languge can only be null or not empty');
 
-        $response = $this->httpGet(sprintf('/api/candidates/%s/match', $candidate), [
+        $data = [
             'role' => $role,
             'type' => $type,
-        ]);
+        ];
+
+        if (null !== $language) {
+            $data['language'] = $language;
+        }
+
+        $response = $this->httpGet(sprintf('/api/candidates/%s/match', $candidate), $data);
 
         if (!$this->hydrator) {
             return $response;
