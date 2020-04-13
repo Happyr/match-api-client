@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace HappyrMatch\ApiClient\Api;
 
 use HappyrMatch\ApiClient\Exception;
+use HappyrMatch\ApiClient\Hydrator\ArrayHydrator;
 use HappyrMatch\ApiClient\Model\Accepted;
 use HappyrMatch\ApiClient\Model\Role\Role as Model;
 use HappyrMatch\ApiClient\Model\Role\RoleCategoryCollection;
@@ -57,6 +58,31 @@ final class Role extends HttpApi
         }
 
         return $this->hydrator->hydrate($response, Accepted::class);
+    }
+
+    /**
+     * @throws Exception
+     *
+     * @return RoleCategoryCollection|ResponseInterface|array
+     */
+    public function allCategories($rawArray = false)
+    {
+        $response = $this->httpGet('/api/roles/all-categories');
+
+        if (!$this->hydrator) {
+            return $response;
+        }
+
+        // Use any valid status code here
+        if (200 !== $response->getStatusCode()) {
+            $this->handleErrors($response);
+        }
+
+        if ($rawArray) {
+            return (new ArrayHydrator())->hydrate($response, RoleCategoryCollection::class);
+        }
+
+        return $this->hydrator->hydrate($response, RoleCategoryCollection::class);
     }
 
     /**
