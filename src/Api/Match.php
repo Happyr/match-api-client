@@ -51,6 +51,11 @@ class Match extends HttpApi
         return $this->hydrator->hydrate($response, CandidateMatch::class);
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|GroupMatch
+     */
     public function groupMatch(string $group, string $role, string $type)
     {
         Assert::notEmpty($group, 'Group cannot be empty');
@@ -74,6 +79,11 @@ class Match extends HttpApi
         return $this->hydrator->hydrate($response, GroupMatch::class);
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|GroupFilter
+     */
     public function groupFilter(string $group, string $role, string $type)
     {
         Assert::notEmpty($group, 'Group cannot be empty');

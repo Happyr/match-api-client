@@ -41,6 +41,11 @@ class Group extends HttpApi
         return $this->hydrator->hydrate($response, Model::class);
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|Accepted
+     */
     public function addCandidates(string $group, array $candidates = [])
     {
         Assert::notEmpty($group, 'Group cannot be empty');

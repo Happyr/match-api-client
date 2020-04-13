@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Api;
 
+use HappyrMatch\ApiClient\Exception;
 use HappyrMatch\ApiClient\Model\Accepted;
 use HappyrMatch\ApiClient\Model\Find\FindTypeCollection;
+use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -13,6 +15,11 @@ use Webmozart\Assert\Assert;
  */
 class Find extends HttpApi
 {
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|Accepted
+     */
     public function create(string $role, string $type, string $callbackUrl, ?string $nonce = null)
     {
         Assert::notEmpty($role, 'Role cannot be empty');
@@ -38,6 +45,11 @@ class Find extends HttpApi
         return $this->hydrator->hydrate($response, Accepted::class);
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|FindTypeCollection
+     */
     public function getTypes()
     {
         $response = $this->httpGet('/api/find-types');
