@@ -44,6 +44,11 @@ class Test extends HttpApi
         return $this->hydrator->hydrate($response, Model::class);
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|TestTypeCollection
+     */
     public function getTypes()
     {
         $response = $this->httpGet('/api/test-types');

@@ -59,6 +59,11 @@ final class Role extends HttpApi
         return $this->hydrator->hydrate($response, Accepted::class);
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ResponseInterface|RoleCategoryCollection
+     */
     public function search(string $name, string $language)
     {
         $response = $this->httpGet('/api/role-categories/search', ['language' => $language, 'name' => $name], ['Authorization' => '']);
