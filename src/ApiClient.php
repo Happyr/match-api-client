@@ -122,6 +122,11 @@ class ApiClient
         return new Api\Test($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
+    public function learn(): Api\Learn
+    {
+        return new Api\Learn($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+    }
+
     private function getHttpClient(): HttpClient
     {
         return $this->clientConfigurator->createConfiguredClient();
