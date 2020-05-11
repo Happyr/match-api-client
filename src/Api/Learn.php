@@ -15,9 +15,9 @@ use Webmozart\Assert\Assert;
 class Learn extends HttpApi
 {
     /**
-     * @throws Exception
-     *
      * @return ResponseInterface|Accepted
+     *
+     * @throws Exception
      */
     public function create(string $candidate, string $role, string $learnName, string $category, ?int $score = null)
     {
@@ -25,24 +25,19 @@ class Learn extends HttpApi
         Assert::notEmpty($role, 'Role cannot be empty');
         Assert::notEmpty($learnName, 'Learn name cannot be empty');
         Assert::notEmpty($category, 'Category cannot be empty');
-        Assert::oneOf($category, [
-            'application',
-            'employed',
-            'hard_performance_data',
-            'interview',
-            'recruiter_grade',
-            'self_assessment',
-            'soft_performance_data',
-            ],
-        'Invalid category');
 
-        $response = $this->httpPost('/api/learn', [
+        $data = [
             'candidate' => $candidate,
             'role' => $role,
             'name' => $learnName,
             'category' => $category,
-            'score' => $score ?? 0,
-        ]);
+        ];
+
+        if (null !== $score) {
+            $data['score'] = $score;
+        }
+
+        $response = $this->httpPost('/api/learn', $data);
 
         if (!$this->hydrator) {
             return $response;
