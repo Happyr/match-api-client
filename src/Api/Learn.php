@@ -25,7 +25,7 @@ class Learn extends HttpApi
         Assert::notEmpty($role, 'Role cannot be empty');
         Assert::notEmpty($learnName, 'Learn name cannot be empty');
         Assert::notEmpty($category, 'Category cannot be empty');
-        Assert::inArray($category, [
+        Assert::oneOf($category, [
             'application',
             'employed',
             'hard_performance_data',
