@@ -15,6 +15,7 @@ use Webmozart\Assert\Assert;
 class Learn extends HttpApi
 {
     /**
+     * @param 'application'|'employed'|'hard_performance_data'|'interview'|'recruiter_grade'|'self_assessment'|'self_assessment' $category
      * @return ResponseInterface|Accepted
      *
      * @throws Exception
