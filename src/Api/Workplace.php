@@ -43,7 +43,7 @@ final class Workplace extends HttpApi
      */
     public function show(string $id)
     {
-        Assert::notEmpty($id, 'Workplaced id cannot be empty');
+        Assert::notEmpty($id, 'Workplace id cannot be empty');
         $response = $this->httpGet(\sprintf('/api/workplaces/%s', $id));
 
         if (!$this->hydrator) {
@@ -86,7 +86,7 @@ final class Workplace extends HttpApi
      */
     public function update(string $id, array $param)
     {
-        Assert::notEmpty($id, 'Workplaced id cannot be empty');
+        Assert::notEmpty($id, 'Workplace id cannot be empty');
         $response = $this->httpPut(\sprintf('/api/workplaces/%s', $id), $param);
 
         if (!$this->hydrator) {
