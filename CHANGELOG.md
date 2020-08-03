@@ -1,15 +1,45 @@
 # Change Log
 
+## 0.4.3
 
-## 0.1.0
+- Added `ApiClient::workplace()`
 
-- Initial release
+## 0.4.2
 
-## 0.2.0
+- Added support for culture match
 
-- Support multiple test types to be passed when creating a tests
+## 0.4.1
+
+- Fix, we dont support php-http/client-common:1.x
+
+## 0.4.0
+
+- Add support for `Learn`
+
+## 0.3.0
+
+- Added support for `Workplaces` and `Role::allCategories()`
+
+## 0.2.4
+
+- Adding support for language on match
+
+## 0.2.3
+
+- Add support for nonce
+
+## 0.2.2
+
+- Support for text feedback
 
 ## 0.2.1
 
 - Fix post parameter for create Find request
 
+## 0.2.0
+
+- Support multiple test types to be passed when creating a tests
+
+## 0.1.0
+
+- Initial release
