@@ -127,7 +127,7 @@ class ApiClient
         return new Api\Learn($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
-    public function workplace(): Api\Learn
+    public function workplace(): Api\Workplace
     {
         return new Api\Workplace($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
