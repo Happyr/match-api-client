@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Model\Workplace;
 
-final class Workplace
+use HappyrMatch\ApiClient\Model\CreatableFromArray;
+
+final class Workplace implements CreatableFromArray
 {
     private $id;
     private $organization;
