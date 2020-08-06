@@ -118,4 +118,9 @@ final class Authenticator
     {
         return $this->accessToken;
     }
+
+    public function clearAccessToken(): void
+    {
+        $this->accessToken = null;
+    }
 }

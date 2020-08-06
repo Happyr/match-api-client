@@ -95,9 +95,14 @@ class ApiClient
      * The access token may have been refreshed during the requests. Use this function to
      * get back the (possibly) refreshed access token.
      */
-    public function getAccessToken(): ?string
+    public function getAccessToken($clearAfterRead = false): ?string
     {
-        return $this->authenticator->getAccessToken();
+        $token = $this->authenticator->getAccessToken();
+        if ($clearAfterRead) {
+            $this->authenticator->clearAccessToken();
+        }
+
+        return $token;
     }
 
     public function find(): Api\Find
