@@ -10,6 +10,8 @@ use HappyrMatch\ApiClient\Http\ClientConfigurator;
 use HappyrMatch\ApiClient\Hydrator\Hydrator;
 use HappyrMatch\ApiClient\Hydrator\ModelHydrator;
 use Http\Client\HttpClient;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
@@ -45,20 +47,21 @@ class ApiClient
         string $clientId,
         string $clientSecret,
         Hydrator $hydrator = null,
-        RequestBuilder $requestBuilder = null
+        RequestBuilder $requestBuilder = null,
+        LoggerInterface $logger = null
     ) {
         $this->clientConfigurator = $clientConfigurator;
         $this->hydrator = $hydrator ?: new ModelHydrator();
         $this->requestBuilder = $requestBuilder ?: new RequestBuilder();
-        $this->authenticator = new Authenticator($this->requestBuilder, $this->clientConfigurator->createConfiguredClient(), $clientId, $clientSecret);
+        $this->authenticator = new Authenticator($this->requestBuilder, $this->clientConfigurator->createConfiguredClient(), $clientId, $clientSecret, $logger ?? new NullLogger());
     }
 
-    public static function create(string $endpoint, string $clientId, string $clientSecret): self
+    public static function create(string $endpoint, string $clientId, string $clientSecret, LoggerInterface $logger = null): self
     {
         $clientConfigurator = new ClientConfigurator();
         $clientConfigurator->setEndpoint($endpoint);
 
-        return new self($clientConfigurator, $clientId, $clientSecret);
+        return new self($clientConfigurator, $clientId, $clientSecret, null, null, $logger);
     }
 
     /**

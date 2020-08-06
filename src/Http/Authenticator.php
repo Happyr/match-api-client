@@ -6,6 +6,7 @@ namespace HappyrMatch\ApiClient\Http;
 
 use HappyrMatch\ApiClient\RequestBuilder;
 use Http\Client\HttpClient;
+use Psr\Log\LoggerInterface;
 
 /**
  * Helper class to get access tokens.
@@ -41,12 +42,18 @@ final class Authenticator
      */
     private $clientSecret;
 
-    public function __construct(RequestBuilder $requestBuilder, HttpClient $httpClient, string $clientId, string $clientSecret)
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    public function __construct(RequestBuilder $requestBuilder, HttpClient $httpClient, string $clientId, string $clientSecret, LoggerInterface $logger)
     {
         $this->requestBuilder = $requestBuilder;
         $this->httpClient = $httpClient;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
+        $this->logger = $logger;
     }
 
     public function createAccessToken(string $code, string $redirectUri): ?string
@@ -63,10 +70,17 @@ final class Authenticator
 
         $response = $this->httpClient->sendRequest($request);
         if (200 !== $response->getStatusCode()) {
+            $this->logger->error('Failed to create new access token from code', [
+                'category' => 'happyr match client',
+            ]);
             return null;
         }
 
         $this->accessToken = $response->getBody()->__toString();
+
+        $this->logger->error('Create new access token from code', [
+            'category' => 'happyr match client',
+        ]);
 
         return $this->accessToken;
     }
@@ -85,10 +99,17 @@ final class Authenticator
 
         $response = $this->httpClient->sendRequest($request);
         if (200 !== $response->getStatusCode()) {
+            $this->logger->error('Failed to use refresh token', [
+                'category' => 'happyr match client',
+            ]);
+
             return null;
         }
 
         $this->accessToken = $response->getBody()->__toString();
+        $this->logger->error('Got a new refresh token from access token', [
+            'category' => 'happyr match client',
+        ]);
 
         return $this->accessToken;
     }
