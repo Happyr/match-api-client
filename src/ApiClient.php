@@ -107,9 +107,9 @@ class ApiClient
         return new Api\Group($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
-    public function match(): Api\Match
+    public function match(): Api\MatchApi
     {
-        return new Api\Match($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
+        return new Api\MatchApi($this->getHttpClient(), $this->hydrator, $this->requestBuilder);
     }
 
     public function role(): Api\Role

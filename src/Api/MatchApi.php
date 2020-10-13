@@ -14,7 +14,7 @@ use Webmozart\Assert\Assert;
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-class Match extends HttpApi
+class MatchApi extends HttpApi
 {
     /**
      * @throws Exception

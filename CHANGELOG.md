@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.0
+
+- Renamed `Match` to `MatchApi` to be compatible with PHP8.
+
 ## 0.4.3
 
 - Added `ApiClient::workplace()`
