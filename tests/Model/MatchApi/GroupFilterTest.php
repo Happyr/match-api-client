@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace HappyrMatch\ApiClient\Tests\Model\MatchApi;
 
 use HappyrMatch\ApiClient\Model\Group;
-use HappyrMatch\ApiClient\Model\Match\GroupFilter;
+use HappyrMatch\ApiClient\Model\MatchApi\GroupFilter;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 /**
