@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": ">=7.1",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0",
         "php-http/client-common": "^2.0",
