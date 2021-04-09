@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+- Dropped support for PHP <7.4.
+- Allow installation on PHP 8.
+- Renamed namespace `Match` to `MatchApi` in models.
+
 ## 0.5.0
 
 - Renamed `Match` to `MatchApi` to be compatible with PHP8.

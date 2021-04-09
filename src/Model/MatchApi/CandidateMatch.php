@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Model\Match;
+namespace HappyrMatch\ApiClient\Model\MatchApi;
 
 use HappyrMatch\ApiClient\Model\CreatableFromArray;
 

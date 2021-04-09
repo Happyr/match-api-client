@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Tests\Model\Role;
+namespace HappyrMatch\ApiClient\Tests\Model\Test;
 
 use HappyrMatch\ApiClient\Model\Test\Test;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;

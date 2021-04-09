@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace HappyrMatch\ApiClient\Tests\Model\Role;
+namespace HappyrMatch\ApiClient\Tests\Model\MatchApi;
 
-use HappyrMatch\ApiClient\Model\Match\CandidateMatch;
-use HappyrMatch\ApiClient\Model\Match\GroupMatch;
+use HappyrMatch\ApiClient\Model\MatchApi\CandidateMatch;
+use HappyrMatch\ApiClient\Model\MatchApi\GroupMatch;
 use HappyrMatch\ApiClient\Tests\Model\BaseModelTest;
 
 /**
