@@ -25,7 +25,7 @@ final class CandidateMatch implements CreatableFromArray
         $data = $data['data'] ?? $data;
         $model = new self();
         $model->id = $data['id'];
-        $model->match = $data['attributes']['match'];
+        $model->match = $data['attributes']['match'] ?? null;
         $model->confidence = $data['attributes']['confidence'] ?? null;
         $model->grade = $data['attributes']['grade'] ?? null;
         $model->resultCulture = $data['attributes']['result_culture'] ?? null;
@@ -40,7 +40,7 @@ final class CandidateMatch implements CreatableFromArray
         return $this->id;
     }
 
-    public function getMatch(): bool
+    public function getMatch(): ?bool
     {
         return $this->match;
     }
