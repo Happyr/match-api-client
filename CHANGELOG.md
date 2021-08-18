@@ -2,7 +2,7 @@
 
 ## 0.6.1
 
-- Candidate::match() can be null
+- CandidateMatch::getMatch() can be null
 
 ## 0.6.0
 
