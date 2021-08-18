@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.6.1
+
+- Candidate::match() can be null
+
 ## 0.6.0
 
 - Dropped support for PHP <7.4.
