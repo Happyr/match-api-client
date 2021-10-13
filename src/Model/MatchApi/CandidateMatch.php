@@ -15,6 +15,7 @@ final class CandidateMatch implements CreatableFromArray
     private $dimensionScore;
     private $resultCulture;
     private $text;
+    private $tests;
 
     private function __construct()
     {
@@ -31,6 +32,10 @@ final class CandidateMatch implements CreatableFromArray
         $model->resultCulture = $data['attributes']['result_culture'] ?? null;
         $model->dimensionScore = $data['attributes']['dimension_score'] ?? [];
         $model->text = $data['attributes']['text'] ?? [];
+        $model->tests = [];
+        foreach ($data['attributes']['tests'] ?? [] as $test) {
+            $model->tests[] = TestResult::create($test, $model->dimensionScore);
+        }
 
         return $model;
     }
@@ -68,5 +73,13 @@ final class CandidateMatch implements CreatableFromArray
     public function getResultCulture(): ?int
     {
         return $this->resultCulture;
+    }
+
+    /**
+     * @return TestResult[]
+     */
+    public function getTests(): array
+    {
+        return $this->tests;
     }
 }
