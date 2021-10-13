@@ -10,6 +10,7 @@ final class TestType implements CreatableFromArray
 {
     private $id;
     private $name;
+    private $visibility;
 
     private function __construct()
     {
@@ -20,6 +21,7 @@ final class TestType implements CreatableFromArray
         $model = new self();
         $model->id = $data['id'];
         $model->name = $data['attributes']['name'];
+        $model->visibility = $data['attributes']['visibility'];
 
         return $model;
     }
@@ -32,5 +34,10 @@ final class TestType implements CreatableFromArray
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getVisibility()
+    {
+        return $this->visibility;
     }
 }

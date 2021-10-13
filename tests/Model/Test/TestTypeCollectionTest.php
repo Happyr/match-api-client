@@ -20,14 +20,16 @@ class TestTypeCollectionTest extends BaseModelTest
             "type": "test-type",
             "id": "cde14106-d800-403d-8005-fac9df3f98c5",
             "attributes": {
-                "name": "Personality"
+                "name": "Personality",
+                "visibility": "public"
             }
         },
         {
             "type": "test-type",
             "id": "ff7f1c4a-b25e-49d6-afb1-4643d9703630",
             "attributes": {
-                "name": "Culture"
+                "name": "Culture",
+                "visibility": "public"
             }
         }
     ]
