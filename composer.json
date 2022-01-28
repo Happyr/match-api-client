@@ -1,11 +1,11 @@
 {
     "name": "happyr-match/api-client",
     "description": "A client for Happyr match API",
+    "license": "MIT",
     "keywords": [
         "api",
         "happyr match"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "Tobias Nyholm",
