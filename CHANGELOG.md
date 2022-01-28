@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.6.2
+
+- Added support for visibility on TestType
+- Added support for TestResult
+
 ## 0.6.1
 
 - CandidateMatch::getMatch() can be null
