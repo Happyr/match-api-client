@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Http;
 
-use HappyrMatch\ApiClient\Exception\Domain\ServerException;
+use HappyrMatch\ApiClient\Exception\Domain\AuthorizationServerException;
 use HappyrMatch\ApiClient\RequestBuilder;
 use Http\Client\HttpClient;
 
@@ -73,7 +73,7 @@ final class Authenticator
     }
 
     /**
-     * @throws ServerException
+     * @throws AuthorizationServerException
      */
     public function refreshAccessToken(string $accessToken, string $refreshToken): ?string
     {
@@ -89,7 +89,7 @@ final class Authenticator
 
         $response = $this->httpClient->sendRequest($request);
         if ($response->getStatusCode() >= 500) {
-            throw new ServerException();
+            throw new AuthorizationServerException();
         }
         if (200 !== $response->getStatusCode()) {
             return null;

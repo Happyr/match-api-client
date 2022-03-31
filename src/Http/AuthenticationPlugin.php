@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Http;
 
-use HappyrMatch\ApiClient\Exception\Domain\ServerException;
+use HappyrMatch\ApiClient\Exception\Domain\AuthorizationServerException;
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
@@ -43,7 +43,7 @@ final class AuthenticationPlugin implements Plugin
     }
 
     /**
-     * @throws ServerException
+     * @throws AuthorizationServerException
      */
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
