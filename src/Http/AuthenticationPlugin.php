@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HappyrMatch\ApiClient\Http;
 
+use HappyrMatch\ApiClient\Exception\Domain\ServerException;
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
@@ -41,6 +42,9 @@ final class AuthenticationPlugin implements Plugin
         $this->accessToken = \json_decode($accessToken, true);
     }
 
+    /**
+     * @throws ServerException
+     */
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
         if (null === $this->accessToken || $request->hasHeader('Authorization')) {
