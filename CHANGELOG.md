@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.7.0
+
+- Throw exception if server returns 500 during update of access token
+
 ## 0.6.2
 
 - Added support for visibility on TestType
